@@ -33,7 +33,6 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     var grouped = this.groupedTransactions;
 
     return Card(
@@ -41,7 +40,11 @@ class Chart extends StatelessWidget {
       margin: EdgeInsets.all(20),
       child: Row(
         children: groupedTransactions.map((transaction) {
-          return ChartBar(transaction);
+          return ChartBar(
+            label: transaction['day'],
+            value: transaction['value'],
+            percentage: transaction['value'],
+          );
           return Text('${transaction['day']}: ${transaction['value']} ');
         }).toList(),
       ),

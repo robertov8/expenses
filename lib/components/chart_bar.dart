@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
 
 class ChartBar extends StatelessWidget {
-  final Map transaction;
+  final String label;
+  final double value;
+  final double percentage;
 
-  ChartBar(this.transaction);
+  ChartBar({
+    this.label,
+    this.value,
+    this.percentage,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-
-        children: [
-          Container(
-            margin: EdgeInsets.only(top: 5),
-            width: 10,
-            height: 30,
-            decoration: BoxDecoration(
-              color: Colors.purple
-            ),
-          ),
-          Text(transaction['day']),
-          Text(transaction['value'].toString()),
-        ],
-      ),
+    return Column(
+      children: [
+        Text('R\$${value.toStringAsFixed(2)}'),
+        SizedBox(height: 5),
+        Container(
+          margin: EdgeInsets.only(top: 5),
+          height: 60,
+          width: 10,
+          decoration: BoxDecoration(color: Colors.purple),
+        ),
+        SizedBox(height: 5),
+        Text(label)
+      ],
     );
   }
 }
