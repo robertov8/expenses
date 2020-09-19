@@ -43,7 +43,7 @@ class Chart extends StatelessWidget {
           return ChartBar(
             label: transaction['day'],
             value: transaction['value'],
-            percentage: transaction['value'],
+            percentage: 0.3,
           );
           return Text('${transaction['day']}: ${transaction['value']} ');
         }).toList(),
